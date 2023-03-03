@@ -53,4 +53,10 @@ document.addEventListener("click", (e) =>{
     if(targetEl.classList.contains("finish-todo")){
         parentEl.classList.toggle("done")
     }
+    if(targetEl.classList.contains("remove-todo")){
+        parentEl.remove()
+    }
+    if(targetEl.classList.contains("edit-todo")){
+        console.log("editado")
+    }
 })
