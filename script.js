@@ -28,6 +28,12 @@ const saveTodo = (text) =>{
     deletBtn.classList.add("remove-todo")
     deletBtn.innerHTML = ' <i class="fa-solid fa-xmark"></i>'
     todo.appendChild(deletBtn)
+
+    todoList.appendChild(todo)
+
+    todoInput.value = "" // Deletar tarefa escrita assim que o usuario der enter.
+
+    todoInput.focus() // Focar em adcionar outra tarefa.
 }
 // Eventos
 todoForm.addEventListener("submit", (e ) =>{
@@ -37,5 +43,14 @@ todoForm.addEventListener("submit", (e ) =>{
  
     if(inputValue){
        saveTodo(inputValue)
+    }
+})
+
+document.addEventListener("click", (e) =>{
+    const targetEl = e.target
+    const parentEl = targetEl.closest("div") // Pegando a div mais proxima.
+
+    if(targetEl.classList.contains("finish-todo")){
+        parentEl.classList.toggle("done")
     }
 })
