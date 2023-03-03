@@ -35,6 +35,11 @@ const saveTodo = (text) =>{
 
     todoInput.focus() // Focar em adcionar outra tarefa.
 }
+const toggleFoms = () =>{
+    editForm.classList.toggle("hide")
+    todoForm.classList.toggle("hide")
+    todoList.classList.toggle("hide")
+}
 // Eventos
 todoForm.addEventListener("submit", (e ) =>{
     e.preventDefault()
@@ -57,6 +62,6 @@ document.addEventListener("click", (e) =>{
         parentEl.remove()
     }
     if(targetEl.classList.contains("edit-todo")){
-        console.log("editado")
+        toggleFoms() // esconder um formulario e apresentar outro.
     }
 })
